@@ -1,1 +1,7 @@
-%h1 Posts
+%ul
+  - @posts.each do |post|
+    %li
+      .title
+        =link_to post.title, post.link
+      .tagline{title: post.created_at}
+        submitted #{ time_ago_in_words post.created_at } ago
