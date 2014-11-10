@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: elevennit_development
+
+test:
+  <<: *default
+  database: elevennit_test
+
+production:
+  <<: *default
+  database: elevennit_production
+  username: elevennit
+  password: <%= ENV['ELEVENNIT_DATABASE_PASSWORD'] %>
