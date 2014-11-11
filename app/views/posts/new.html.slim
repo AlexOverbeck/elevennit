@@ -1,15 +1,11 @@
 = form_for @post, html: { class: "form-horizontal clearfix" } do |f|
-  .form-group
-    = f.label :title, class: "col-sm-2 control-label"
-    .col-sm-10
-      = f.text_field :title, placeholder: "Post Title", class: "form-control"
-  .form-group
-    = f.label :link, class: "col-sm-2 control-label"
-    .col-sm-10
-      = f.text_field :link, placeholder: "Featured Link", class: "form-control"
-  .form-group
+  = f.label :title, class: "col-sm-2 control-label"
+  = f.text_field :title, placeholder: "Post Title", class: "form-control"
+  - if f.object.text?
     = f.label :body, class: "col-sm-2 control-label"
-    .col-sm-10
-      = f.text_area :body, placeholder: "Post Content", class: "form-control"
-  .pull-right
-    = f.button class: "btn btn-primary"
+    = f.text_area :body, placeholder: "Post Content", class: "form-control"
+  - else
+    = f.label :link, class: "col-sm-2 control-label"
+    = f.text_field :link, placeholder: "Featured Link", class: "form-control"
+  = f.hidden_field :post_type
+  = f.button class: "btn btn-primary"
