@@ -3,6 +3,26 @@
 @import "base/grid-settings"
 @import "neat"
 @import "base/base"
-@import "refills/*"
-@import "ui"
-@import "sidebar"
+@import "font-awesome.css"
+@import "main"
+@import "refills/footer"
+@import "refills/messages"
+@import "refills/navigation"
+@import "refills/flex_box"
+
+body
+  background-color: desaturate(darken($base-accent-color, 20), 30)
+
+#flash
+  background-color: white
+  +clearfix
+
+.container
+  padding: 1em 0 3em
+  background-color: white
+
+.tagline
+  +position(absolute, null null 0px 0px)
+  padding: 0.2em 0.5em
+  color: grey
+  width: 100%

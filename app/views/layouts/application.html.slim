@@ -6,23 +6,21 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = render partial: "refills/navigation"
-    .container
-      - flash.each do |name, msg|
-        - if msg.is_a? Array
+    = render "refills/navigation"
+    - if flash.present?
+      #flash
+        - flash.each do |name, msg|
           ul
-            - msg.each do |m|
-              = content_tag :li, m, class: "alert #{name}"
-        - else
-          = content_tag :div, msg, class: "alert #{name}"
-      .row
-        .col-xs-8
-          main
-            == yield
-        .col-xs-4
-          nav#sidebar
-            = link_to "Submit a new link", new_post_path
-            = link_to "Submit a new post", new_post_path(post_type: :text)
-    .push
-    footer
-      | Use of this site constitutes acceptance of the <a href="http://dresdenfiles.wikia.com/wiki/Unseelie_Accords">Unseelie Accords</a>.
+            - if msg.is_a? Array
+              - msg.each do |m|
+                = content_tag :li, class: "flash-message #{flash_class(name)}" do
+                  = m
+                  a.close.fa.fa-times href="#"
+            - else
+              = content_tag :li, class: "flash-message #{flash_class(name)}" do
+                = msg
+                a.close.fa.fa-times href="#"
+    .container
+      main
+        == yield
+    = render "refills/footer"

@@ -1,7 +1,17 @@
-ul
-  - @posts.each do |post|
-    li
-      .title
-        =link_to post.title, post.link
+.flex-boxes
+  - @posts.each_with_index do |post, index|
+    div class="flex-box #{"flex-box-big" if post.text? }"
+      .controls
+        = link_to "edit", edit_post_path(post), class: "control blue"
+        = link_to "delete", "#", class: "control red"
+      =link_to post_link(post) do
+        .post-type
+          - if post.text?
+            i.fa.fa-book
+          - else
+            i.fa.fa-external-link
+        h1.flex-title= post.title
+      - if post.text?
+        p= truncate(strip_tags(post.body), length: 200, separator: ' ')
       .tagline title=post.created_at
-        | submitted #{ time_ago_in_words post.created_at } ago
+        small submitted #{ time_ago_in_words post.created_at } ago

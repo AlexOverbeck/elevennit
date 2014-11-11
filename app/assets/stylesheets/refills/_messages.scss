@@ -1,0 +1,39 @@
+$flash-red: #FBE3E4;
+$flash-yellow: #FFF6BF;
+$flash-green: #E6EFC2;
+
+%flash-base {
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: $base-spacing / 2;
+  a.close {
+    float: right;
+    border: none;
+    line-height: 1.5;
+  }
+  &:last-of-type {
+    margin-bottom: 10px;
+  }
+}
+
+$flashes: (alert: $flash-yellow, error: $flash-red, notice: lighten($base-accent-color, 40), success: $flash-green);
+
+@each $flash, $color in $flashes {
+  .flash-#{$flash} {
+    @extend %flash-base;
+    background: $color;
+    color: darken($color, 60);
+    border-bottom: 1px solid darken($color, 60);
+
+    a {
+      color: darken($color, 70);
+      border-bottom: 1px solid transparentize(darken($color, 70), .7);
+
+      &:hover {
+        color: darken($color, 90);
+      }
+    }
+  }
+}
