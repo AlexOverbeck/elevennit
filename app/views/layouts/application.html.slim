@@ -1,24 +1,26 @@
-!!! 5
-%html
-  %head
-    %title Elevennit
+doctype 5
+html
+  head
+    title Elevennit
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  body
     .container.wrap
       .row
         .col-xs-12
-          %header
+          header
             = link_to "Elevennit", root_path
       .container
+        - flash.each do |name, msg|
+          = content_tag :div, msg, class: "alert alert-info #{name}"
         .row
           .col-xs-8
-            %main
-              = yield
+            main
+              == yield
           .col-xs-4
-            %nav#sidebar
+            nav#sidebar
               = link_to "Submit a new link", new_post_path
       .push
-    %footer<
-      Use of this site constitutes acceptance of the <a href="http://dresdenfiles.wikia.com/wiki/Unseelie_Accords">Unseelie Accords</a>.
+    footer
+      | Use of this site constitutes acceptance of the <a href="http://dresdenfiles.wikia.com/wiki/Unseelie_Accords">Unseelie Accords</a>.
