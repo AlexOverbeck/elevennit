@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, flash: { notice: "Post was created successfully" }
     else
-      flash.now[:error] = 'You broke it. Nice going.'
+      flash.now[:error] = @posts.errors.full_messages
       render :new
     end
   end

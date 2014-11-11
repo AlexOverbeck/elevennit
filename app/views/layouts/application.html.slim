@@ -13,7 +13,11 @@ html
             = link_to "Elevennit", root_path
       .container
         - flash.each do |name, msg|
-          = content_tag :div, msg, class: "alert alert-info #{name}"
+          - if msg.is_a? Array
+            - msg.each do
+              = content_tag :div, msg, class: "alert #{name}"
+          - else
+            = content_tag :div, msg, class: "alert #{name}"
         .row
           .col-xs-8
             main
