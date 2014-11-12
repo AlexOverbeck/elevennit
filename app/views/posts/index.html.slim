@@ -1,9 +1,7 @@
 .flex-boxes
   - @posts.each_with_index do |post, index|
     div class="flex-box #{"flex-box-big" if post.text? }"
-      .controls
-        = link_to "edit", edit_post_path(post), class: "control blue"
-        = link_to "delete", "#", class: "control red"
+      = render 'post_controls', { post: post }
       =link_to post_link(post) do
         .post-type
           - if post.text?

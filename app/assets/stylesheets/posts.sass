@@ -1,0 +1,40 @@
+article.post
+  margin: 3em auto 0
+  width: 90%
+  +media($medium-screen)
+    width: 80%
+  +media($large-screen)
+    width: 70%
+  hgroup
+    position: relative
+    padding-bottom: 2em
+    strong
+      color: grey
+
+.controls
+  .flex-box &
+    font-size: 0.7em
+    @include position(absolute, 8px 5px null null)
+  .post &
+    font-size: 0.9em
+    @include position(absolute, -3.2em 5px null null)
+  .control
+    padding: 0.2em 0.5em
+    margin-left: 0.5em
+    border-radius: 4px
+    border: 1px solid grey
+    &.blue
+      color: #264d85
+      border-color: #264d85
+    &.red
+      color: #96151b
+      border-color: #96151b
+
+.tagline
+  +position(absolute, null null 0px 0px)
+  padding: 0.2em 0.5em
+  color: grey
+  width: 100%
+  a
+    color: grey
+    margin-left: 0.3em

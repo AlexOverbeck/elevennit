@@ -1,6 +1,7 @@
 article.post
   hgroup
-    h1.title= link_to @post.title, @post.link
-    h5.tagline title=@post.created_at submitted #{ time_ago_in_words @post.created_at } ago
+    h1.title= @post.title
+    strong title=@post.created_at submitted #{ time_ago_in_words @post.created_at } ago
+    = render 'post_controls', { post: @post }
   - if @post.text?
     section.body== @post.body

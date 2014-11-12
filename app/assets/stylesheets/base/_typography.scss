@@ -45,6 +45,17 @@ h6 {
 
 p {
   margin: 0 0 ($base-spacing / 2);
+  font-family: $serif;
+  font-weight: 300;
+  letter-spacing: 1;
+  margin-bottom: 1.5em;
+
+  span {
+    font-family: $sans-serif;
+    font-weight: 600;
+    font-size: .8em;
+    text-transform: uppercase;
+  }
 }
 
 a {
