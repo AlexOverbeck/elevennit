@@ -35,9 +35,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      redirect_to posts_path, flash: { notice: "Post was removed" }
+      redirect_to categories_path, flash: { notice: "Category was removed" }
     else
-      redirect_to posts_path, flash: { notice: "You are unable to remove this post" }
+      redirect_to categories_path, flash: { notice: "You are unable to remove this category" }
     end
   end
 
