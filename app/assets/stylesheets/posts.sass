@@ -1,3 +1,36 @@
+.posts
+  +row
+  section
+    +fill-parent
+    +media($medium-screen)
+      +span-columns(6)
+    +media($large-screen)
+      +span-columns(9)
+  aside
+    +fill-parent
+    background-color: #f7f7f7
+    border-radius: 3px
+    margin-top: 0.4em
+    border-top: 6px solid grey
+    box-shadow: inset 0 0 1px #999, 0 2px 4px #e6e6e6
+    +media($medium-screen)
+      +span-columns(6)
+    +media($large-screen)
+      +span-columns(3)
+    h2
+      font-size: 1.2em
+      font-family: $serif
+      padding: 0.5em
+      color: rgba(51, 51, 51, 0.7)
+      font-weight: 500
+    li
+      padding: 0.5em
+      border-top: 1px solid darken(#f7f7f7, 10%)
+      line-height: 1.1
+      a
+        font-size: 0.8em
+
+
 article.post
   margin: 3em auto 0
   width: 90%
@@ -18,17 +51,6 @@ article.post
   .post &
     font-size: 0.9em
     @include position(absolute, -3.2em 5px null null)
-  .control
-    padding: 0.2em 0.5em
-    margin-left: 0.5em
-    border-radius: 4px
-    border: 1px solid grey
-    &.blue
-      color: #264d85
-      border-color: #264d85
-    &.red
-      color: #96151b
-      border-color: #96151b
 
 .tagline
   +position(absolute, null null 0px 0px)

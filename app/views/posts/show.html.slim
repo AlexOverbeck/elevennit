@@ -3,5 +3,4 @@ article.post
     h1.title= @post.title
     strong title=@post.created_at submitted #{ time_ago_in_words @post.created_at } ago
     = render 'post_controls', { post: @post }
-  - if @post.text?
-    section.body== @post.body
+  section.body== @post.body

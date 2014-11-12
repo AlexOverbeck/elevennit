@@ -1,0 +1,16 @@
+table.table-minimal
+  thead
+    tr
+      th Name
+      th Description
+      th Post Count
+      th Controls
+  tbody
+    - @categories.each do |cat|
+      tr
+        td= cat.name
+        td= cat.description
+        td= link_to cat.posts.length, posts_path(category: cat.id)
+        td
+          = link_to "Edit", edit_category_path(cat), class: "record-control blue"
+          = link_to "Delete", category_path(cat), method: :delete, data: { confirm: 'Are you sure?' }, class: "record-control red"

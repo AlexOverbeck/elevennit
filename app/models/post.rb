@@ -5,5 +5,4 @@ class Post < ActiveRecord::Base
   enum post_type: [:link, :text]
 
   has_one :category
-
 end

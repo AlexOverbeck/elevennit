@@ -1,14 +1,16 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all
   end
 
   def show
+    @category = Category.includes(:posts).find params[:id]
   end
 
   def new
+    @category = Category.new
   end
 
   def create

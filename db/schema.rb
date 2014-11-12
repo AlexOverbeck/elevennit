@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 20141112151320) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
-    t.string   "link",           limit: 2000
+    t.string   "link",        limit: 2000
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "post_type",                   default: 0
-    t.integer  "category_id_id"
+    t.integer  "post_type",                default: 0
+    t.integer  "category_id"
   end
 
-  add_index "posts", ["category_id_id"], name: "index_posts_on_category_id_id", using: :btree
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
 
 end
