@@ -1,7 +1,7 @@
 .posts
   section.flex-boxes
     - @posts.text.each_with_index do |post, index|
-      article class="flex-box"
+      article class="flex-box #{if (index+1) % 3 == 0 then 'flex-box-big'}"
         = render 'shared/record_controls', { record: post }
         = link_to post_link(post) do
           .post-type

@@ -1,22 +1,19 @@
 .posts
   +row
   section
-    +fill-parent
+    width: 100%
     +media($medium-screen)
-      +span-columns(6)
-    +media($large-screen)
-      +span-columns(9)
+      float: left
+      width: 72%
   aside
-    +fill-parent
     background-color: #f7f7f7
     border-radius: 3px
     margin-top: 0.4em
     border-top: 6px solid grey
     box-shadow: inset 0 0 1px #999, 0 2px 4px #e6e6e6
     +media($medium-screen)
-      +span-columns(6)
-    +media($large-screen)
-      +span-columns(3)
+      float: right
+      width: 26%
     h2
       font-size: 1.2em
       font-family: $serif
