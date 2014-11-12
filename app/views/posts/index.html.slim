@@ -12,9 +12,9 @@
           small
             | Posted in
             = link_to "##{post.category.name.downcase.gsub(' ', '-')}", category_path(post.category)
-
   aside.links
     h2 Link list
     ul
       - @posts.link.each do |post|
         li= link_to post.title, post.link
+  = will_paginate @posts
