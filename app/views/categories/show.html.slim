@@ -1,0 +1,10 @@
+article.category
+  hgroup
+    h1.title= @category.title
+    strong title=@category.created_at submitted #{ time_ago_in_words @category.created_at } ago
+    = render 'shared/record_controls', { record: @category }
+  section.body
+
+  section.posts
+    ul
+      = render partial: "posts/posts", collection: @category.posts, as: :post

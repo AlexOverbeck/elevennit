@@ -1,15 +1,15 @@
 table.table-minimal
   thead
     tr
-      th Name
-      th Description
+      th Title
+      th colspan="3" Description
       th Post Count
       th Controls
   tbody
     - @categories.each do |cat|
       tr
-        td= cat.name
-        td= cat.description
+        td= cat.title
+        td colspan="3"= truncate(strip_tags(cat.description), length: 100, separator: ' ')
         td= link_to cat.posts.length, posts_path(category: cat.id)
         td
           = link_to "Edit", edit_category_path(cat), class: "record-control blue"

@@ -2,5 +2,5 @@ article.post
   hgroup
     h1.title= @post.title
     strong title=@post.created_at submitted #{ time_ago_in_words @post.created_at } ago
-    = render 'post_controls', { post: @post }
+    = render 'shared/record_controls', { record: @post }
   section.body== @post.body

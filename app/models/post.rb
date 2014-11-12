@@ -4,5 +4,8 @@ class Post < ActiveRecord::Base
   validates :body, presence: true, if: :text?
   enum post_type: [:link, :text]
 
-  has_one :category
+  belongs_to :category
+
+  default_scope { order("updated_at DESC") }
+  scope :added_today, -> { where('created_at > ?', Time.now.beginning_of_day)}
 end

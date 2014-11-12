@@ -1,0 +1,9 @@
+li
+  - if post.text?
+    = link_to post_path(post) do
+      i.fa.fa-book
+      = post.title
+  - elsif post.link?
+    = link_to post.link do
+      i.fa.fa-link
+      = post.title

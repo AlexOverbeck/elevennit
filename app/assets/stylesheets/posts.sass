@@ -30,33 +30,15 @@
       a
         font-size: 0.8em
 
-
-article.post
-  margin: 3em auto 0
-  width: 90%
-  +media($medium-screen)
-    width: 80%
-  +media($large-screen)
-    width: 70%
-  hgroup
-    position: relative
-    padding-bottom: 2em
-    strong
-      color: grey
-
-.controls
-  .flex-box &
-    font-size: 0.7em
-    @include position(absolute, 8px 5px null null)
-  .post &
-    font-size: 0.9em
-    @include position(absolute, -3.2em 5px null null)
-
 .tagline
   +position(absolute, null null 0px 0px)
   padding: 0.2em 0.5em
   color: grey
   width: 100%
   a
-    color: grey
+    font-style: italic
+    color: darken(grey, 10%)
     margin-left: 0.3em
+    &:hover
+      color: $blue
+      border-bottom: 1px solid $blue

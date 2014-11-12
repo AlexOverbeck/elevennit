@@ -8,6 +8,10 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    nav#categories
+      ul
+        - get_categories.each do |c|
+          li= link_to c.title, c
     = render "refills/navigation"
     - if flash.present?
       #flash
