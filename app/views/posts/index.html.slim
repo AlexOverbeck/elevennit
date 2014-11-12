@@ -1,6 +1,6 @@
-.flex-boxes
-  - @posts.each_with_index do |post, index|
-    div class="flex-box #{"flex-box-big" if post.text? }"
+section.flex-boxes
+  - @posts.text.each_with_index do |post, index|
+    article class="flex-box #{"flex-box-big" if index % 3 == 0 }"
       = render 'post_controls', { post: post }
       =link_to post_link(post) do
         .post-type
@@ -13,3 +13,8 @@
         p= truncate(strip_tags(post.body), length: 200, separator: ' ')
       .tagline title=post.created_at
         small submitted #{ time_ago_in_words post.created_at } ago
+
+aside.links
+  ul
+    - @posts.link.each do |post|
+      li= link_to post.title, post.link
