@@ -1,3 +1,4 @@
-.record-controls
-  = link_to "edit", [:edit, record], class: "record-control blue"
-  = link_to "delete", record, method: :delete, data: { confirm: 'Are you sure?' }, class: "record-control red"
+- if user_signed_in? && record.user_id == current_user.id
+  .record-controls
+    = link_to "edit", [:edit, record], class: "record-control blue"
+    = link_to "delete", record, method: :delete, data: { confirm: 'Are you sure?' }, class: "record-control red"

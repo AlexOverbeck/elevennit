@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   enum post_type: [:link, :text]
 
   belongs_to :category
+  belongs_to :user
 
   default_scope { order("updated_at DESC") }
   scope :with_category, -> { includes(:category) }

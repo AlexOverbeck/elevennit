@@ -6,6 +6,7 @@ class Category < ActiveRecord::Base
   validates :submission_text, length: { maximum: 1024 }
 
   has_many :posts
+  belongs_to :user
 
   default_scope { order('lower(name) ASC') }
   scope :added_today, -> { where('created_at > ?', Time.now.beginning_of_day) }

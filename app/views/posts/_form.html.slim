@@ -13,4 +13,5 @@
     = f.label :category_id
     = f.collection_select :category_id, Category.all, :id, :name
   = f.hidden_field :post_type
+  = f.hidden_field :user_id, value: current_user.id
   = f.button class: "btn btn-primary"

@@ -20,6 +20,17 @@
         </li>
       </ul>
     </div>
+    <div class="navigation-tools">
+      <ul>
+        <% if user_signed_in? -%>
+          <li><%= link_to current_user.username, edit_user_registration_path(current_user) %></li>
+          <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+        <% else -%>
+          <li><%= link_to 'login', new_user_session_path %></li>
+          <li><%= link_to 'register', new_user_registration_path %></li>
+        <% end -%>
+      </ul>
+    </div>
   </div>
 </header>
 

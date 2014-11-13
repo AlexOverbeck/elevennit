@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @posts = Post.with_category.paginate(:page => params[:page])
+    @posts = Post.text.with_category.paginate(:page => params[:page])
+    @links = Post.link
   end
 
   def show
@@ -50,6 +52,6 @@ class PostsController < ApplicationController
   end
 
   def allowed_params
-    params.require(:post).permit(:title, :link, :body, :post_type, :category_id)
+    params.require(:post).permit(:title, :link, :body, :post_type, :category_id, :user_id)
   end
 end

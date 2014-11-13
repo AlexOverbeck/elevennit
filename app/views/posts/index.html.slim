@@ -1,6 +1,6 @@
 .posts
   section.flex-boxes
-    - @posts.text.each_with_index do |post, index|
+    - @posts.each_with_index do |post, index|
       article class="flex-box #{if (index+1) % 3 == 0 then 'flex-box-big'}"
         = render 'shared/record_controls', { record: post }
         = link_to post_link(post) do
@@ -15,6 +15,6 @@
   aside.links
     h2 Link list
     ul
-      - @posts.link.each do |post|
+      - @links.each do |post|
         li= link_to post.title, post.link
   = will_paginate @posts
